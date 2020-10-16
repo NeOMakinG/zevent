@@ -1,0 +1,19 @@
+.informations {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px;
+
+  &-donations, &-viewers {
+    &-title {
+     font-size: 28px; 
+     margin-bottom: 10px;
+     font-weight: bold;
+     color: #4bba31;
+    } 
+
+    &-amount {
+      font-size: 20px; 
+    }
+  }
+}

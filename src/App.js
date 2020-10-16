@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
+import './reset.css';
 import './App.css';
+import Informations from './components/Informations'
+import List from './components/List'
+import Logo from './logo.png';
 
 function App() {
+  const [datas, setData] = useState();
+
+  useEffect(() => {
+      (async () => {
+        const response = await fetch('https://zevent.fr/api/data.json');
+        const playersData = await response.json();
+
+        setData(playersData);
+      })()
+
+      setInterval(() => {
+        (async () => {
+          const response = await fetch('https://zevent.fr/api/data.json');
+          const playersData = await response.json();
+
+          setData(playersData);
+        })()
+      }, 5000) 
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img className="logo" src={Logo} />
+
+      {datas ?
+        <React.Fragment>
+          <Informations datas={datas} />
+          <List datas={datas} />
+        </React.Fragment>
+      : <p>Loading</p>
+      }
     </div>
   );
 }
