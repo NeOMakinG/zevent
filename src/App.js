@@ -10,7 +10,9 @@ function App() {
 
   useEffect(() => {
       (async () => {
-        const response = await fetch('https://zevent.fr/api/data.json');
+        const response = await fetch('https://zevent.fr/api/data.json', {
+          mode: 'no-cors'
+        });
         const playersData = await response.json();
 
         setData(playersData);
