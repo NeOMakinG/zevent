@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Streamer.scss';
 
 function Streamer({player}) {
@@ -16,7 +16,7 @@ function Streamer({player}) {
         <div className={player.online ? 'streamer-online' : 'streamer-offline'}></div>
 
         <div className="streamer-img">
-          <img src={player.profileUrl} />
+          <img src={player.profileUrl} alt="Streamer img" />
         </div>    
 
         <p className="streamer-name">

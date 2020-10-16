@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <img className="logo" src={Logo} />
+      <img className="logo" alt="Logo" src={Logo} />
 
       {datas ?
         <React.Fragment>
