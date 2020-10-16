@@ -21,11 +21,9 @@ function App() {
 
       setInterval(() => {
         (async () => {
-          const response = await fetch('https://zevent.fr/api/data.json', 
-          {
+          const response = await fetch('https://zevent.fr/api/data.json', {
             mode: 'no-cors',
-          }
-          );
+          });
           const playersData = await response.text();
 
           setData(JSON.parse(playersData));
