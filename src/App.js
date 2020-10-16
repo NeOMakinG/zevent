@@ -26,7 +26,7 @@ function App() {
 
           setData(playersData);
         })()
-      }, 5000) 
+      }, 120000) 
   }, [])
 
   return (
