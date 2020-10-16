@@ -14,9 +14,9 @@ function App() {
           mode: 'no-cors',
         });
 
-        const playersData = await response.json();
+        const playersData = await response.text();
 
-        setData(playersData);
+        setData(JSON.parse(playersData));
       })()
 
       setInterval(() => {
@@ -26,9 +26,9 @@ function App() {
             mode: 'no-cors',
           }
           );
-          const playersData = await response.json();
+          const playersData = await response.text();
 
-          setData(playersData);
+          setData(JSON.parse(playersData));
         })()
       }, 5000) 
   }, [])
