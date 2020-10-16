@@ -10,23 +10,21 @@ function App() {
 
   useEffect(() => {
       (async () => {
-        const response = await fetch('https://zevent.fr/api/data.json', {
-          mode: 'no-cors',
-        });
+        const response = await fetch('https://cors-anywhere.herokuapp.com/https://zevent.fr/api/data.json'
+        );
 
-        const playersData = await response.text();
-
-        setData(JSON.parse(playersData));
+        const playersData = await response.json();
+          console.log(playersData)
+        setData(playersData);
       })()
 
       setInterval(() => {
         (async () => {
-          const response = await fetch('https://zevent.fr/api/data.json', {
-            mode: 'no-cors',
-          });
-          const playersData = await response.text();
+          const response = await fetch('https://cors-anywhere.herokuapp.com/https://zevent.fr/api/data.json'
+          );
+          const playersData = await response.json();
 
-          setData(JSON.parse(playersData));
+          setData(playersData);
         })()
       }, 5000) 
   }, [])
